@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WageAnalyzer.Models\WageAnalyzer.Models.csproj" />
+    <ProjectReference Include="..\WageAnalyzer\WageAnalyzer\WageAnalyzer.csproj" />
+  </ItemGroup>
+
+</Project>
