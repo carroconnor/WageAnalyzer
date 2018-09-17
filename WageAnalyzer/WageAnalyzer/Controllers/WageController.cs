@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace WageAnalyzer.Controllers
+﻿namespace WageAnalyzer.Controllers
 {
-    class WageController
+    public class WageController
     {
     }
 }

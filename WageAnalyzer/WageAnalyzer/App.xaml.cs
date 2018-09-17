@@ -1,32 +1,45 @@
-using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-[assembly: XamlCompilation (XamlCompilationOptions.Compile)]
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace WageAnalyzer
 {
-	public partial class App : Application
-	{
-		public App ()
-		{
-			InitializeComponent();
+    public partial class App : Application
+    {
+        public static WageRespository WageRepo { get; private set; }
 
-			MainPage = new MainPage();
-		}
+        public App(string dbPath)
+        {
+            InitializeComponent();
 
-		protected override void OnStart ()
-		{
-			// Handle when your app starts
-		}
+            WageRepo = new WageRespository(dbPath);
 
-		protected override void OnSleep ()
-		{
-			// Handle when your app sleeps
-		}
+            MainPage = new TabbedPage
+            {
+                Children =
+                {
+                    new WageAnalyzer.MainPage(),
+                    new WageAnalyzer.WageCollector(),
+                    new WageAnalyzer.TipCalculator(),
+                    new WageAnalyzer.Reports(),
+                    new WageAnalyzer.Settings()
+                }
+            };
+        }
 
-		protected override void OnResume ()
-		{
-			// Handle when your app resumes
-		}
-	}
+        protected override void OnStart()
+        {
+            // Handle when your app starts
+        }
+
+        protected override void OnSleep()
+        {
+            // Handle when your app sleeps
+        }
+
+        protected override void OnResume()
+        {
+            // Handle when your app resumes
+        }
+    }
 }

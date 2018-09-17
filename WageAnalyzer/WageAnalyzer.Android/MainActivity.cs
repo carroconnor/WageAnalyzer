@@ -1,10 +1,6 @@
-﻿using System;
-
+﻿
 using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
 
 namespace WageAnalyzer.Droid
@@ -20,7 +16,8 @@ namespace WageAnalyzer.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App());
+            string dbPath = FileAccessHelper.GetLocalFilePath("WageAnalyzer.db3");
+            LoadApplication(new App(dbPath));
         }
     }
 }
